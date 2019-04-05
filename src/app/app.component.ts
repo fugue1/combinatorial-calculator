@@ -150,7 +150,7 @@ addComb(n: HTMLInputElement, cseed: HTMLInputElement): boolean {
     this.ermsg_f = true;
 
   } else {
-//  const m = combsize(+n.value, c);
+    const m = combsize(+n.value, c);
 //  if (m > 100000) {
 //    this.ccount = m;
 //    this.ermsg_c = true;
