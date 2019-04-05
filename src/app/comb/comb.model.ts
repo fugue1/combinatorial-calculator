@@ -13,6 +13,30 @@ function combn(n, zs) {
   }
 }
 
+function flatten(arr) {
+  return arr.reduce((a,b) => a.concat(b));
+}
+
+function xpete(x,m) {
+  if (m === 1) {
+    return [[1, x]];
+  } else {
+    return [[m, x.repeat(m)], ...xpete(x,m-1)];
+  }
+}
+
+function rcombn(n, zs) {
+  if (n === 0) {
+    return [''];
+  } else if (zs.length === 0) {
+    return [];
+  } else {
+    const [h, ...t] = zs;
+    const [x, m] = h;
+    return flatten( xpete(x,m).map( item => insrt(item[1], rcombn(n-item[0], t)) ) ).concat(rcombn(n,t));
+  }
+}
+
 function lendisp(n) {
   if (n === 1) {
     return '1 choice';
@@ -31,18 +55,22 @@ function factorial(n) {
 
 export class Comb {
   title: string;
+  dict: any;
   combs: string[];
   combdisp: string;
   comblen: string;
   choices: number;
+  rcombsize: number;
 
-  constructor(m: number, title: string, n: number) {
+  constructor(m: number, dict: any, title: string, n: number) {
 
     this.title = title;
-    this.combs = combn(m, title);
+    this.combs = rcombn(m, dict);
     this.comblen = lendisp(n);
     this.combdisp = (this.combs).join(', ');
     this.choices = m;
+    this.rcombsize = this.combs.length;
+
 
   }
 

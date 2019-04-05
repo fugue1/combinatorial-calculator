@@ -15,7 +15,23 @@ function factorial(n) {
 
 function combsize(n, s) {
   const l = s.length;
-  return factorial(l)/(factorial(n)*factorial(l-n))
+  return factorial(l)/(factorial(n)*factorial(l-n));
+
+}
+
+function combdict(s) {
+  let k = 0;
+  let dict = new Map();
+  for (let c of s) {
+    k = k+1;
+    if (dict.has(c)) {
+      dict.set(c, 1 + dict.get(c));
+    } else {
+      dict.set(c, 1);
+    }
+  }
+  return [...dict.entries()];
+
 }
 
 function permsize(s) {
@@ -134,16 +150,21 @@ addComb(n: HTMLInputElement, cseed: HTMLInputElement): boolean {
     this.ermsg_f = true;
 
   } else {
-  const m = combsize(+n.value, c);
-  if (m > 100000) {
-    this.ccount = m;
-    this.ermsg_c = true;
-  } else {
-    this.ermsg_c = false;
-    this.ermsg_f = false;
-    this.c_strings.unshift( new Comb(+n.value, c, m));
+//  const m = combsize(+n.value, c);
+//  if (m > 100000) {
+//    this.ccount = m;
+//    this.ermsg_c = true;
+//  } else {
+  //  this.ermsg_c = false;
+  //  this.ermsg_f = false;
+    const d = combdict(c);
+    console.log(d);
+    for (const [m,x] of d) {
+      console.log(m,x);
+    }
+    this.c_strings.unshift( new Comb(+n.value, d, c, m));
   }
-}
+
   return false;
 }
 
