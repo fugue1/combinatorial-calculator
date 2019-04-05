@@ -1,10 +1,10 @@
 
-    <div [ngSwitch]="natnum.title" class="ui text container">
+    <div [ngSwitch]="natnum.title" class="ui raised text container segment">
 
 
-    <div *ngSwitchCase="1" class="ui stackable grid">
+    <div *ngSwitchCase="1" class="ui stackable two column grid">
 
-      <div class="four wide column">
+      <div class="column">
 
 
 
@@ -17,7 +17,8 @@
           </div>
         </div>
       </div>
-      <div class="twelve wide column">
+
+      <div class="column">
 
         <button class="ui right floated inverted red icon button" (click)="remove(natnum.title)">
           <i  class="red close icon"></i>
@@ -45,6 +46,18 @@
 
     <div *ngSwitchDefault class="ui stackable grid">
 
+      <div class="one column row">
+
+      <div class="column">
+        <button class="ui right floated inverted red icon button" (click)="remove(natnum.title)">
+          <i  class="red close icon"></i>
+        </button>
+      </div>
+
+      </div>
+
+      <div class="two column row">
+
     <div class="four wide column">
 
 
@@ -59,11 +72,11 @@
       </div>
     </div>
     <div class="twelve wide column">
-
+<!--
       <button class="ui right floated inverted red icon button" (click)="remove(natnum.title)">
         <i  class="red close icon"></i>
       </button>
-
+        -->
       <div class="ui large header">
         <div class="ui black horizontal label">Prime Factors</div>
         {{ natnum.factdisp }}
@@ -83,6 +96,8 @@
           </a>
         </li>
       </ul>
+    </div>
+
     </div>
 
     </div>
