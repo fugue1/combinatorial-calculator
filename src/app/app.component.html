@@ -1,0 +1,138 @@
+<div class="ui centered grid" >
+  <div class="ui black segment">
+    <div class="row">
+        <button (click)="switchFactor()" class="ui inverted blue button">
+          Factorization
+        </button>
+        <button (click)="switchPerm()" class="ui inverted green button">
+          Permutations
+        </button>
+        <button (click)="switchComb()" class="ui inverted red button">
+          Combinations
+        </button>
+    </div>
+  </div>
+  </div>
+
+
+<div class="ui container" [ngSwitch]="mode">
+
+<div *ngSwitchCase="'factor'">
+
+<form class="ui large form segment">
+  <h3 class="ui header">Unique Prime Factorization</h3>
+  <div class="field">
+    <label for="input number"> Input Postive Integer: </label>
+    <input name="nat" #nat>
+  </div>
+
+  <div *ngIf="ermsg_n">
+    <div class="ui negative message">
+    <!--  <i class="close icon"></i> -->
+
+
+        <div class="header">
+          Please Enter A Postive Integer!
+        </div>
+      <p>Please enter an integer greater than zero.</p>
+    </div>
+  </div>
+
+  <button (click)="addNumber(nat)" class="ui positive right floated button">
+    Factor
+  </button>
+
+</form>
+
+<div class="ui centered grid post">
+  <app-factors *ngFor="let natnum of natnums" [natnum]="natnum" (removed_f)="removeNat($event)">
+    </app-factors>
+</div>
+
+</div>
+
+<div *ngSwitchCase="'perm'">
+  <form class="ui large form segment">
+    <h3 class="ui header">Permutations</h3>
+    <div class="field">
+      <label for="input number"> Input String: </label>
+      <input name="nat" #nat>
+    </div>
+
+    <div *ngIf="ermsg">
+      <div class="ui negative message">
+      <!--  <i class="close icon"></i> -->
+
+
+          <div class="header">
+            Too Many Permutations!
+          </div>
+        <p>Your string has {{ pcount }} permutations. Try a string with less than 9 unique characters.</p>
+      </div>
+    </div>
+
+    <button (click)="addString(nat)" class="ui positive right floated button">
+      Compute Permutations
+    </button>
+
+
+  </form>
+
+  <div class="ui centered grid">
+    <app-perm *ngFor="let string of strings" [string]="string" (removed_p)="removePerm($event)">
+      </app-perm>
+  </div>
+</div>
+
+
+<div *ngSwitchCase="'comb'">
+  <form class="ui large form segment">
+    <h3 class="ui header">Combinations</h3>
+    <div class="field">
+      <label for="input string"> Input String: </label>
+      <input name="cstring" #cstring>
+    </div>
+
+    <div class="field">
+      <label for="input number"> Input Natural Number: </label>
+      <input name="nat" #nat>
+    </div>
+
+    <div *ngIf="ermsg_c">
+      <div class="ui negative message">
+      <!--  <i class="close icon"></i> -->
+
+
+          <div class="header">
+            Too Many Combinations!
+          </div>
+        <p>Your string has {{ ccount }} combinations. Try a string with less than 15 characters.</p>
+      </div>
+    </div>
+
+    <div *ngIf="ermsg_f">
+      <div class="ui negative message">
+      <!--  <i class="close icon"></i> -->
+
+          <div class="header">
+            Both fields are required!
+          </div>
+        <p>Please enter a string and a natural number greater than 0 (but not greater than the length of the string!).</p>
+      </div>
+    </div>
+
+    <button (click)="addComb(nat, cstring)" class="ui positive right floated button">
+      Compute Combinations
+    </button>
+
+
+  </form>
+
+  <div class="ui centered grid">
+    <app-comb *ngFor="let c_string of c_strings" [c_string]="c_string" (removed_c)="removeComb($event)">
+      </app-comb>
+  </div>
+</div>
+
+
+</div>

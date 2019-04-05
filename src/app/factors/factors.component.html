@@ -1,0 +1,90 @@
+
+    <div [ngSwitch]="natnum.title" class="ui text container">
+
+
+    <div *ngSwitchCase="1" class="ui stackable grid">
+
+      <div class="four wide column">
+
+
+
+        <div class="ui statistic votes">
+          <div class="value">
+            {{ natnum.title }}
+          </div>
+          <div class="label">
+            unit
+          </div>
+        </div>
+      </div>
+      <div class="twelve wide column">
+
+        <button class="ui right floated inverted red icon button" (click)="remove(natnum.title)">
+          <i  class="red close icon"></i>
+        </button>
+
+        <div class="ui large header">
+          <div class="ui black horizontal label">Factors</div>
+          No Prime Factors
+        </div>
+        <div class="meta">Unique Factors  ({{ natnum.factors | unique | disparr }})</div>
+        <ul class="ui big horizontal list voters">
+          <li class="item">
+            <a href (click)="voteUp()">
+              <i class="arrow up icon"></i>
+                increase
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+
+
+    </div>
+
+    <div *ngSwitchDefault class="ui stackable grid">
+
+    <div class="four wide column">
+
+
+
+      <div class="ui small statistic votes">
+        <div class="value">
+          {{ natnum.title }}
+        </div>
+        <div class="label">
+          {{ natnum.factors | comp }}
+        </div>
+      </div>
+    </div>
+    <div class="twelve wide column">
+
+      <button class="ui right floated inverted red icon button" (click)="remove(natnum.title)">
+        <i  class="red close icon"></i>
+      </button>
+
+      <div class="ui large header">
+        <div class="ui black horizontal label">Prime Factors</div>
+        {{ natnum.factdisp }}
+      </div>
+      <div class="meta">Unique Factors  ({{ natnum.factors | unique | disparr }})</div>
+      <ul class="ui big horizontal list voters">
+        <li class="item">
+          <a href (click)="voteUp()">
+            <i class="arrow up icon"></i>
+              increase
+          </a>
+        </li>
+        <li class="item">
+          <a href (click)="voteDown()">
+            <i class="arrow down icon"></i>
+            decrease
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    </div>
+
+    </div>
