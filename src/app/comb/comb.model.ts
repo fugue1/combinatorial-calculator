@@ -60,16 +60,16 @@ export class Comb {
   combdisp: string;
   comblen: string;
   choices: number;
-  rcombsize: number;
 
-  constructor(m: number, dict: any, title: string, n: number) {
+
+  constructor(n: number, dict: any, title: string, m: number) {
 
     this.title = title;
-    this.combs = rcombn(m, dict);
-    this.comblen = lendisp(n);
+    this.combs = rcombn(n, dict);
+    this.comblen = lendisp(m);
     this.combdisp = (this.combs).join(', ');
-    this.choices = m;
-    this.rcombsize = this.combs.length;
+    this.choices = n;
+
 
 
   }

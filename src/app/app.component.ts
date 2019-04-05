@@ -34,6 +34,26 @@ function combdict(s) {
 
 }
 
+function polymult(p1, p2) {
+  const l1 = p1.length;
+  const l2 = p2.length;
+
+  let prod = new Array(l1 + l2 - 1).fill(0);
+
+  for (let i = 0; i < l1; i++) {
+    for (let j = 0; j < l2; j++) {
+      prod[i+j] += p1[i]*p2[j];
+    }
+  }
+  return prod;
+}
+
+function multicombcount(n, dict) {
+  const polyrep = dict.map( item => new Array(item[1]+1).fill(1) );
+  const prod = polyrep.reduce( (a,b) => polymult(a,b) );
+  return prod[n];
+}
+
 function permsize(s) {
   let k = 0;
   let dict = new Map();
@@ -150,23 +170,23 @@ addComb(n: HTMLInputElement, cseed: HTMLInputElement): boolean {
     this.ermsg_f = true;
 
   } else {
-    const m = combsize(+n.value, c);
-//  if (m > 100000) {
-//    this.ccount = m;
-//    this.ermsg_c = true;
-//  } else {
-  //  this.ermsg_c = false;
-  //  this.ermsg_f = false;
     const d = combdict(c);
-    console.log(d);
-    for (const [m,x] of d) {
-      console.log(m,x);
-    }
+    const m = multicombcount(+n.value, d);
+    if (m > 100000) {
+    this.ccount = m;
+    this.ermsg_c = true;
+  } else {
+    this.ermsg_c = false;
+    this.ermsg_f = false;
+
     this.c_strings.unshift( new Comb(+n.value, d, c, m));
   }
+}
 
   return false;
 }
+
+
 
  sortedNumbers(): NatNum[] {
    return this.natnums.sort((a: NatNum, b: NatNum) => b.title - a.title);
