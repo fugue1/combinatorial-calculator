@@ -15,9 +15,9 @@ function combn(n, zs) {
 
 function lendisp(n) {
   if (n === 1) {
-    return '1 Combination';
+    return '1 choice';
   } else {
-    return `${n} Combinations`;
+    return `${n} choices`;
   }
 }
 
@@ -34,6 +34,7 @@ export class Comb {
   combs: string[];
   combdisp: string;
   comblen: string;
+  choices: number;
 
   constructor(m: number, title: string, n: number) {
 
@@ -41,6 +42,7 @@ export class Comb {
     this.combs = combn(m, title);
     this.comblen = lendisp(n);
     this.combdisp = (this.combs).join(', ');
+    this.choices = m;
 
   }
 

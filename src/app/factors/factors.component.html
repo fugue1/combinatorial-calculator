@@ -2,47 +2,53 @@
     <div [ngSwitch]="natnum.title" class="ui raised text container segment">
 
 
-    <div *ngSwitchCase="1" class="ui stackable two column grid">
+    <div *ngSwitchCase="1" class="ui stackable grid">
 
-      <div class="column">
+      <div class="one column row">
 
+        <div class="column">
 
+          <button class="ui right floated inverted red icon button" (click)="remove(natnum.title)">
+            <i  class="red close icon"></i>
+          </button>
 
-        <div class="ui statistic votes">
-          <div class="value">
-            {{ natnum.title }}
-          </div>
-          <div class="label">
-            unit
-          </div>
         </div>
+
       </div>
 
-      <div class="column">
+      <div class="one column row">
 
-        <button class="ui right floated inverted red icon button" (click)="remove(natnum.title)">
-          <i  class="red close icon"></i>
-        </button>
+        <div class="column">
 
-        <div class="ui large header">
-          <div class="ui black horizontal label">Factors</div>
-          No Prime Factors
+          <div class="ui segment">
+
+            <div class="ui top attached large black label">Prime Factors of {{ natnum.title }}</div>
+
+          <div class="ui large header">
+
+            No Prime Factors
+          </div>
+          <div class="meta">Unique Factors  ({{ natnum.factors | unique | disparr }})</div>
+          <ul class="ui big horizontal list voters">
+            <li class="item">
+              <a href (click)="voteUp()">
+                <i class="arrow up icon"></i>
+                  increase
+              </a>
+            </li>
+          </ul>
+
         </div>
-        <div class="meta">Unique Factors  ({{ natnum.factors | unique | disparr }})</div>
-        <ul class="ui big horizontal list voters">
-          <li class="item">
-            <a href (click)="voteUp()">
-              <i class="arrow up icon"></i>
-                increase
-            </a>
-          </li>
 
-        </ul>
       </div>
-
-
-
     </div>
+  </div>
+
+
+
+
+
+
 
     <div *ngSwitchDefault class="ui stackable grid">
 
@@ -56,13 +62,14 @@
 
       </div>
 
-      <div class="two column row">
+      <div class="one column row">
 
+<!--
     <div class="four wide column">
 
 
 
-      <div class="ui small statistic votes">
+      <div class="ui tiny statistic votes">
         <div class="value">
           {{ natnum.title }}
         </div>
@@ -71,14 +78,20 @@
         </div>
       </div>
     </div>
-    <div class="twelve wide column">
+    <div class="6 wide column">
+    -->
 <!--
       <button class="ui right floated inverted red icon button" (click)="remove(natnum.title)">
         <i  class="red close icon"></i>
       </button>
         -->
+    <div class="column">
+      <div class="ui segment">
+
+        <div class="ui top attached large black label">Prime Factors of {{ natnum.title }}</div>
+
       <div class="ui large header">
-        <div class="ui black horizontal label">Prime Factors</div>
+
         {{ natnum.factdisp }}
       </div>
       <div class="meta">Unique Factors  ({{ natnum.factors | unique | disparr }})</div>
@@ -96,6 +109,8 @@
           </a>
         </li>
       </ul>
+    </div>
+
     </div>
 
     </div>

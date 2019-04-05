@@ -1,21 +1,42 @@
 
     <div class="ui raised padded text container segment">
 
-      <button class="ui right floated inverted red icon button" (click)="remove(string.title)">
-        <i  class="red close icon"></i>
-      </button>
+      <div class="ui grid">
 
-      <div class="ui centered grid">
+        <div class="one column row">
+
+          <div class="column">
+
+        <button class="ui right floated inverted red icon button" (click)="remove(string.title)">
+          <i  class="red close icon"></i>
+        </button>
+
+        </div>
+
+        </div>
+
+        <!--
+
+      <div class="one column row">
 
 
+        <div class="column">
 
         <div class="ui huge teal label"> {{ string.title }} </div>
 
-      <div class="row">
+        </div>
+
+      </div>
+
+      -->
+
+      <div class="one column row">
+
+      <div class="column">
 
       <div class="ui very padded segment">
 
-        <div class="ui top attached black label">{{ string.permlen }}</div>
+        <div class="ui top attached large black label">{{ string.permlen }} of '{{string.title}}'</div>
       <!-- <div class="meta"> {{ string.permlen }} </div> -->
 
 
@@ -24,8 +45,8 @@
 
       </div>
 
-    </div>
+      </div>
 
-  
+    </div>
 
     </div>
