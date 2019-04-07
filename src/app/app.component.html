@@ -90,12 +90,12 @@
     <h3 class="ui header">Combinations</h3>
     <div class="field">
       <label for="input string"> Input String: </label>
-      <input name="cstring" #cstring>
+      <input type="text" name="cstring" #cstring (keyup)="0">
     </div>
 
     <div class="field">
-      <label for="input number"> Input Natural Number: </label>
-      <input name="nat" #nat>
+      <label for="input number"> Input Number Between 0 and {{ cstring.value.trim().length }}: </label>
+      <input  name="nat" #nat>
     </div>
 
     <div *ngIf="ermsg_c">
