@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, HostBinding, EventEmitter } from '@angular/core';
 import { Perm } from './perm.model';
 
 @Component({
@@ -7,7 +7,7 @@ import { Perm } from './perm.model';
   styleUrls: ['./perm.component.css']
 })
 export class PermComponent implements OnInit {
-
+  @HostBinding('attr.class') cssClass = 'row';
   @Input() string: Perm;
 
   @Output() removed_p = new EventEmitter<string>();

@@ -166,7 +166,7 @@ removeNat(n: number): boolean {
 
 addComb(n: HTMLInputElement, cseed: HTMLInputElement): boolean {
   const c = cseed.value.trim();
-  if (!n || !c.length || +n.value < 1 || +n.value > c.length) {
+  if (!n || !c.length || +n.value < 0 || +n.value > c.length) {
     this.ermsg_f = true;
 
   } else {

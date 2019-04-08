@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, HostBinding, Output, EventEmitter } from '@angular/core';
 import { Comb } from './comb.model'
 
 @Component({
@@ -7,7 +7,7 @@ import { Comb } from './comb.model'
   styleUrls: ['./comb.component.css']
 })
 export class CombComponent implements OnInit {
-
+  @HostBinding('attr.class') cssClass = 'row';
   @Input() c_string: Comb;
   @Output() removed_c = new EventEmitter<string>();
 
