@@ -30,7 +30,7 @@
             Prime Factors of {{ natnum.title }}
           </div>
 
-          <div *ngSwitchCase="1" class="ui padded segment">
+          <div *ngSwitchCase="1" class="ui segment">
 
 
 
@@ -99,7 +99,7 @@
         -->
 
 
-        <div *ngSwitchDefault class="ui padded segment">
+        <div *ngSwitchDefault class="ui segment">
 
 
 
@@ -108,7 +108,7 @@
         {{ natnum.factdisp }}
       </div>
       <div class="meta">Unique Factors  ({{ natnum.factors | unique | disparr }})</div>
-      <ul class="ui big horizontal list voters">
+      <ul class="ui large horizontal list voters">
         <li class="item">
           <a href (click)="voteUp()">
             <i class="arrow up icon"></i>
