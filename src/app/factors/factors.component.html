@@ -1,16 +1,16 @@
 
-    <div [ngSwitch]="natnum.title" class="ui raised padded text container black segment">
+    <div [ngSwitch]="natnum.title" class="ui raised very padded text container segment">
 
 
+
+<!--
     <div *ngSwitchCase="1" class="ui stackable grid">
 
       <div class="one column row">
 
         <div class="column">
 
-          <button class="ui right floated inverted red icon button" (click)="remove(natnum.title)">
-            <i  class="red close icon"></i>
-          </button>
+
 
         </div>
 
@@ -20,9 +20,19 @@
 
         <div class="column">
 
-          <div class="ui segment">
+          <div class="ui padded segment">
+          -->
 
-            <div class="ui top attached huge black label">Prime Factors of {{ natnum.title }}</div>
+          <div class="ui top attached big black label">
+            <button class="ui right floated mini inverted red icon button" (click)="remove(natnum.title)">
+              <i  class="inverted red window close icon"></i>
+            </button>
+            Prime Factors of {{ natnum.title }}
+          </div>
+
+          <div *ngSwitchCase="1" class="ui padded segment">
+
+
 
           <div class="ui large header">
 
@@ -40,9 +50,6 @@
 
         </div>
 
-      </div>
-    </div>
-  </div>
 
 
 
@@ -50,8 +57,10 @@
 
 
 
-    <div *ngSwitchDefault class="ui stackable grid">
 
+
+
+        <!--
       <div class="one column row">
 
       <div class="column">
@@ -84,11 +93,15 @@
       <button class="ui right floated inverted red icon button" (click)="remove(natnum.title)">
         <i  class="red close icon"></i>
       </button>
-        -->
-    <div class="column">
-      <div class="ui segment">
 
-        <div class="ui top attached large black label">Prime Factors of {{ natnum.title }}</div>
+
+        <div class="column">
+        -->
+
+
+        <div *ngSwitchDefault class="ui padded segment">
+
+
 
       <div class="ui large header">
 
@@ -113,8 +126,10 @@
 
     </div>
 
+
+<!--
     </div>
 
     </div>
 
-    </div>
+    </div>  -->

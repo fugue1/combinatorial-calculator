@@ -1,52 +1,16 @@
 
-    <div class="ui raised padded text container segment">
+    <div class="ui raised very padded text container segment">
 
-      <div class="ui grid">
-
-        <div class="one column row">
-
-          <div class="column">
-
-        <button class="ui right floated inverted red icon button" (click)="remove(string.title)">
-          <i  class="red close icon"></i>
-        </button>
-
+        <div class="ui top attached big black label">
+          <button class="ui right floated inverted red mini icon button" (click)="remove(string.title)">
+            <i  class="inverted red close icon"></i>
+          </button>
+          {{ string.permlen }} of '{{string.title}}'
         </div>
-
-        </div>
-
-        <!--
-
-      <div class="one column row">
-
-
-        <div class="column">
-
-        <div class="ui huge teal label"> {{ string.title }} </div>
-
-        </div>
-
-      </div>
-
-      -->
-
-      <div class="one column row">
-
-      <div class="column">
-
-      <div class="ui very padded segment">
-
-        <div class="ui top attached large black label">{{ string.permlen }} of '{{string.title}}'</div>
       <!-- <div class="meta"> {{ string.permlen }} </div> -->
+          <div class="ui padded segment">
 
-
-          {{ string.permdisp }}
-      </div>
-
-      </div>
+            {{ string.permdisp }}
+          </div>
 
       </div>
-
-    </div>
-
-    </div>

@@ -1,33 +1,18 @@
 
-  <div class="ui raised padded text container segment">
+  <div class="ui raised very padded text container segment">
 
-      <div class="ui grid">
 
-        <div class="one column row">
+              <div class="ui top attached big black label">
 
-          <div class="column">
+                <button class="ui right floated inverted red mini icon button" (click)="remove(c_string.title)">
+                  <i  class="inverted red close icon"></i>
+                </button>
 
-            <button class="ui right floated inverted red icon button" (click)="remove(c_string.title)">
-              <i  class="red close icon"></i>
-            </button>
-          </div>
-
-        </div>
-
-        <div class="one column row">
-
-          <div class="column">
-
-            <div class="ui very padded segment">
-
-              <div class="ui top attached large black label">
                 {{ c_string.comblen }} of {{ c_string.choices }} characters from '{{c_string.title}}'
 
               </div>
       <!-- <div class="meta"> {{ string.permlen }} </div> -->
+            <div class="ui padded segment">
               {{ c_string.combdisp }}
+            </div>
           </div>
-      </div>
-    </div>
-    </div>
-    </div>
